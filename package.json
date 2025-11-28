@@ -1,0 +1,26 @@
+{
+  "name": "customer-feedback-form",
+  "version": "1.0.0",
+  "description": "A modern customer feedback form with Web3Forms email integration - No backend required!",
+  "main": "index.html",
+  "scripts": {
+    "compile-scss": "sass --watch styles/scss:styles/css",
+    "compile-scss-once": "sass styles/scss/main.scss styles/css/main.css",
+    "serve": "npx live-server --port=3000",
+    "dev": "npm run compile-scss"
+  },
+  "keywords": [
+    "feedback",
+    "customer-feedback",
+    "web3forms",
+    "html",
+    "scss",
+    "form"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.69.5",
+    "live-server": "^1.2.2"
+  }
+}

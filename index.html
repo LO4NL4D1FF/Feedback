@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Customer Feedback Form - Share your experience with us">
+    <title>Customer Feedback Form</title>
+    <link rel="stylesheet" href="styles/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="feedback-wrapper">
+            <!-- Header Section -->
+            <div class="header">
+                <div class="logo">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="25" cy="25" r="23" stroke="url(#gradient)" stroke-width="4"/>
+                        <path d="M25 15V35M15 25H35" stroke="url(#gradient)" stroke-width="4" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="gradient" x1="0" y1="0" x2="50" y2="50">
+                                <stop offset="0%" stop-color="#667eea"/>
+                                <stop offset="100%" stop-color="#764ba2"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <h1 class="title">We Value Your Feedback</h1>
+                <p class="subtitle">Help us improve by sharing your experience</p>
+            </div>
+
+            <!-- Feedback Form -->
+            <form id="feedbackForm" class="feedback-form" action="https://api.web3forms.com/submit" method="POST">
+
+                <!-- Web3Forms Access Key - REPLACE WITH YOUR KEY -->
+                <input type="hidden" name="access_key" value="7e5c3bb7-5ab7-4181-a396-375256e5e5ff">
+
+                <!-- Optional: Redirect after submission -->
+                <input type="hidden" name="redirect" value="https://yourwebsite.com/thank-you.html">
+
+                <!-- Optional: Custom subject line for email -->
+                <input type="hidden" name="subject" id="emailSubject" value="New Customer Feedback">
+
+                <!-- Honeypot for spam protection -->
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                <!-- Personal Information Section -->
+                <div class="form-section">
+                    <h2 class="section-title">Personal Information</h2>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName" class="form-label">First Name <span class="required">*</span></label>
+                            <input type="text" id="firstName" name="first_name" class="form-input" required placeholder="John">
+                            <span class="error-message" id="firstNameError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName" class="form-label">Last Name <span class="required">*</span></label>
+                            <input type="text" id="lastName" name="last_name" class="form-input" required placeholder="Doe">
+                            <span class="error-message" id="lastNameError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" class="form-input" required placeholder="john.doe@example.com">
+                            <span class="error-message" id="emailError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="+1 (555) 123-4567">
+                            <span class="error-message" id="phoneError"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback Details Section -->
+                <div class="form-section">
+                    <h2 class="section-title">Feedback Details</h2>
+
+                    <div class="form-group">
+                        <label for="category" class="form-label">Feedback Category <span class="required">*</span></label>
+                        <select id="category" name="category" class="form-select" required>
+                            <option value="">Select a category</option>
+                            <option value="Product Quality">Product Quality</option>
+                            <option value="Customer Service">Customer Service</option>
+                            <option value="Delivery">Delivery</option>
+                            <option value="Pricing">Pricing</option>
+                            <option value="Website Experience">Website Experience</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <span class="error-message" id="categoryError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Overall Rating <span class="required">*</span></label>
+                        <div class="rating-container">
+                            <input type="radio" id="star5" name="rating" value="5" required>
+                            <label for="star5" class="star" title="Excellent">★</label>
+
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4" class="star" title="Good">★</label>
+
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label for="star3" class="star" title="Average">★</label>
+
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2" class="star" title="Poor">★</label>
+
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label for="star1" class="star" title="Very Poor">★</label>
+                        </div>
+                        <span class="error-message" id="ratingError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="feedbackSubject" class="form-label">Subject <span class="required">*</span></label>
+                        <input type="text" id="feedbackSubject" name="feedback_subject" class="form-input" required placeholder="Brief summary of your feedback">
+                        <span class="error-message" id="subjectError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">Your Feedback <span class="required">*</span></label>
+                        <textarea id="message" name="message" class="form-textarea" rows="6" required placeholder="Please share your detailed feedback here..." maxlength="1000"></textarea>
+                        <div class="character-count">
+                            <span id="charCount">0</span> / 1000 characters
+                        </div>
+                        <span class="error-message" id="messageError"></span>
+                    </div>
+                </div>
+
+                <!-- Additional Information Section -->
+                <div class="form-section">
+                    <h2 class="section-title">Additional Information</h2>
+
+                    <div class="form-group">
+                        <label class="form-label">Would you recommend us to others?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="recommend" value="Yes" checked>
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Yes</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="recommend" value="No">
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">No</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="recommend" value="Maybe">
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Maybe</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label checkbox-label">
+                            <input type="checkbox" id="followUp" name="follow_up" value="Yes">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">I would like to be contacted regarding this feedback</span>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label checkbox-label">
+                            <input type="checkbox" id="newsletter" name="newsletter" value="Yes">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">Subscribe to our newsletter for updates and offers</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <span class="btn-text">Submit Feedback</span>
+                        <span class="btn-loader"></span>
+                    </button>
+                    <button type="reset" class="btn-reset">Clear Form</button>
+                </div>
+            </form>
+
+            <!-- Success Message -->
+            <div class="success-message" id="successMessage">
+                <div class="success-icon">
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="30" r="28" stroke="#10b981" stroke-width="4"/>
+                        <path d="M15 30L25 40L45 20" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h2>Thank You!</h2>
+                <p>Your feedback has been successfully submitted. We'll review it shortly!</p>
+                <button class="btn-new-feedback" id="newFeedbackBtn">Submit New Feedback</button>
+            </div>
+
+            <!-- Error Message -->
+            <div class="alert alert-error" id="errorAlert">
+                <span class="alert-icon">!</span>
+                <span class="alert-text" id="errorText"></span>
+                <button class="alert-close" id="closeError">&times;</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>

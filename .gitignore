@@ -1,0 +1,24 @@
+# Node modules
+node_modules/
+package-lock.json
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Compiled CSS
+styles/css/*.css
+styles/css/*.css.map
+
+# Optional: Keep a placeholder CSS file
+!styles/css/.gitkeep
+
+# Claude Code
+.claude/
